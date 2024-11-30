@@ -2,14 +2,13 @@ const express = require("express");
 const router = express.Router();
 const Intent = require("../models/intent");
 
-// Function to match user input with patterns from the database
 async function getResponse(userMessage) {
-    const message = userMessage.toLowerCase(); // Convert user message to lowercase
-  const intent = await Intent.findOne({patterns: message}); // Fetch all intents from the DB
+    const message = userMessage.toLowerCase();
+  const intent = await Intent.findOne({patterns: message});
   if(intent){
-    return { response: intent.response, urlLink: intent.url }; // Return response
+    return { response: intent.response, urlLink: intent.url };
   }
-  return { response: "I'm not sure I understand. Can you rephrase?", urlLink: "" }; // Default response with no URL
+  return { response: "I'm not sure I understand. Can you rephrase?", urlLink: "" };
 }
 
 // Chat API endpoint
