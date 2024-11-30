@@ -1,0 +1,110 @@
+:root {
+  --primary-color: #4cafef;
+  --primary-hover-color: #3885d8;
+  --secondary-color: #2b2d42;
+  --background-light: #f9f9f9;
+  --background-dark: #1e1e2f;
+  --text-color-light: #ffffff;
+  --text-color-dark: #1e293b;
+  --shadow-color: rgba(0, 0, 0, 0.1);
+
+  font-family: "Poppins", Arial, Helvetica, sans-serif;
+  font-weight: 400;
+  line-height: 1.6;
+
+  color-scheme: light dark;
+  background-color: var(--background-dark);
+  color: var(--text-color-light);
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  width: 100vw;
+  background: linear-gradient(120deg, #4cafef, #2b2d42);
+  color: var(--text-color-light);
+}
+
+#root
+{
+  width:50%;
+}
+
+h1 {
+  font-size: 3.5rem;
+  font-weight: 700;
+  text-align: center;
+  color: var(--primary-color);
+  text-shadow: 2px 2px 4px var(--shadow-color);
+}
+
+p {
+  font-size: 1.2rem;
+  margin: 10px 0;
+  color: var(--text-color-light);
+  text-align: center;
+}
+
+a {
+  font-weight: 600;
+  color: var(--primary-color);
+  text-decoration: none;
+  transition: color 0.3s;
+}
+a:hover {
+  color: var(--primary-hover-color);
+}
+
+button {
+  padding: 0.8em 1.5em;
+  border: none;
+  border-radius: 12px;
+  background-color: var(--primary-color);
+  color: var(--text-color-light);
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  box-shadow: 0 4px 6px var(--shadow-color);
+  transition: background-color 0.3s, transform 0.2s;
+}
+button:hover {
+  background-color: var(--primary-hover-color);
+  transform: translateY(-2px);
+}
+button:focus,
+button:focus-visible {
+  outline: 4px auto var(--primary-hover-color);
+}
+
+.container {
+  text-align: center;
+  max-width: 600px;
+  padding: 2rem;
+  background-color: var(--secondary-color);
+  border-radius: 15px;
+  box-shadow: 0 8px 15px var(--shadow-color);
+}
+
+@media (prefers-color-scheme: light) {
+  :root {
+    --background-dark: var(--background-light);
+    --text-color-light: var(--text-color-dark);
+    --shadow-color: rgba(0, 0, 0, 0.2);
+  }
+  body {
+    background: linear-gradient(120deg, #f6d365, #fda085);
+  }
+  a:hover {
+    color: var(--primary-hover-color);
+  }
+  button {
+    box-shadow: 0 6px 12px var(--shadow-color);
+  }
+}
