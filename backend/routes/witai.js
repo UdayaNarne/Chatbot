@@ -1,7 +1,7 @@
 const readline = require("readline");
 const axios = require("axios");
 
-const API_URL = "https://api.wit.ai/message?v=20241204";
+const API_URL = "";
 const API_KEY = "Bearer XXXXXXXXXXXXXXXXXXXXXXXXXXXXXX";  //Replace with API key
 
 const express = require("express");
