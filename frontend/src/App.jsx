@@ -12,16 +12,16 @@ function App() {
     setMessages([...messages, { sender: "User", text: input }]);
 
     try {
-      const response = await axios.post("http://localhost:5000/api/chat", {
+      const response = await axios.post("http://localhost:5001/api/chat", {
         message: input,
       });
 
       const botResponse = response.data.response;
-      const urlLink = response.data.urlLink; // Get the single URL from the response
+      const urlLink = response.data.urlLink;
 
       setMessages((prev) => [
         ...prev,
-        { sender: "Bot", text: botResponse, urlLink: urlLink },
+        { sender: "Bot", text: botResponse},
       ]);
     } catch (error) {
       console.error("Error:", error);
@@ -31,7 +31,7 @@ function App() {
       ]);
     }
 
-    setInput(""); // Clear input field
+    setInput("");
   };
 
   return (
