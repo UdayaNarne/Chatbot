@@ -15,6 +15,8 @@ router.post("/generate", async (req, res) => {
     const result = await model.generateContent(prompt);
     const response = result.response.text()
     const responseObject = getJson(response);
+    
+    console.log(responseObject);
     return res.send(responseObject);
 });
 
