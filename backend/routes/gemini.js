@@ -16,7 +16,9 @@ router.post("/generate", async (req, res) => {
     const response = result.response.text()
     const responseObject = getJson(response);
     
-    return res.send(responseObject);
+    const currentIntent = responseObject.intent
+    //console.log(currentIntent, responseObject);
+    res.json({ response: intentResponses[currentIntent] || intentResponses.default });
 });
 
 
