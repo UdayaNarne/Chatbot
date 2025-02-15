@@ -33,7 +33,7 @@ function App() {
               <>
                 <br />
                 <a href={url} target="_blank" rel="noopener noreferrer">
-                  Learn more
+                  Follow this link for information.
                 </a>
               </>
             )}

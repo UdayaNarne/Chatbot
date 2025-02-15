@@ -16,10 +16,49 @@ router.post("/generate", async (req, res) => {
     const response = result.response.text()
     const responseObject = getJson(response);
     
+    console.log(responseObject)
+
     const currentIntent = responseObject.intent
-    //console.log(currentIntent, responseObject);
-    res.json({ response: intentResponses[currentIntent] || intentResponses.default });
+    if(currentIntent==='syllabus') {
+        const {department, degree, batch} = responseObject.entities
+        if(department && degree && batch) {
+            let yr = Number(batch)
+            let syllabusURL = `https://gvpce.ac.in/${department}${degree}coustu${yr}-${yr+1}.html`
+            intentResponses[currentIntent].url = syllabusURL
+            intentResponses[currentIntent].text = `Here is the syllabus for ${department} department ${degree} course of ${batch} admitted batch`
+        }
+        else{
+            intentResponses[currentIntent].url = `https://gvpce.ac.in/RegulationSyllabi.html`
+            intentResponses[currentIntent].text = `Here is the syllabus for all departments for all courses.For a specific department, degree and batch, please provide all those details` 
+        }
+    }
+    else if(currentIntent===`get_faculty_details`){
+        const {department} = responseObject.entities
+        if(department) {
+            if(department === 'cse' || department === 'aimlcse' || department === 'ds') {
+                intentResponses[currentIntent].url = `https://www.gvpce.ac.in/csefac.html`
+                intentResponses[currentIntent].text = `Here are the details of ${department}`
+            }
+            else{
+                intentResponses[currentIntent].url = `https://www.gvpce.ac.in/${department}fac.html`
+                intentResponses[currentIntent].text = `Here are the faculty details of ${department} department`
+            }
+        }
+        else{
+            intentResponses[currentIntent].url = `https://www.gvpce.ac.in/`
+            intentResponses[currentIntent].text = `Please provide the department name`
+        }
+    }
+
+    return res.json({ response: intentResponses[currentIntent] });
+
 });
 
 
 module.exports = router;
+
+
+// "medical": "https://www.gvpce.ac.in/medfac.html",
+//         "hostel": "https://www.gvpce.ac.in/hostel.html",
+//         "transport": "https://www.gvpce.ac.in/transport.html",
+//         "labs": "https://www.gvpce.ac.in/laboratories.html"
