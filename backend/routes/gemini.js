@@ -19,11 +19,13 @@ router.post("/generate", async (req, res) => {
     console.log(responseObject)
 
     const currentIntent = responseObject.intent
-    if(currentIntent==='syllabus') {
+    
+    if(currentIntent===`syllabus`) {
         const {department, degree, batch} = responseObject.entities
-        if(department && degree && batch) {
+        if(degree && batch) {
             let yr = Number(batch)
-            let syllabusURL = `https://gvpce.ac.in/${department}${degree}coustu${yr}-${yr+1}.html`
+            let syllabusURL = `https://gvpce.ac.in/${degree}regsyl${yr}-${yr+1}.html`
+            console.log(syllabusURL)
             intentResponses[currentIntent].url = syllabusURL
             intentResponses[currentIntent].text = `Here is the syllabus for ${department} department ${degree} course of ${batch} admitted batch`
         }
@@ -32,7 +34,8 @@ router.post("/generate", async (req, res) => {
             intentResponses[currentIntent].text = `Here is the syllabus for all departments for all courses.For a specific department, degree and batch, please provide all those details` 
         }
     }
-    else if(currentIntent===`get_faculty_details`){
+    
+    if(currentIntent===`get_faculty_details`){
         const {department} = responseObject.entities
         if(department) {
             if(department === 'cse' || department === 'aimlcse' || department === 'ds') {
