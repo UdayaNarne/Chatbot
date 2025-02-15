@@ -6,7 +6,8 @@
         "text": "To apply for admission, you'll need a Rank Card, Allotment Cards, transcripts, and an application form."
     },
     "get_faculty_details": {
-        "text": "You can find the details of the faculty in your department. Please specify the department."
+        "text": "",
+        "url":""
     },
     "placement_details": {
         "text": "The placement cell at GVPCE provides training and placement opportunities to students.",
@@ -26,11 +27,8 @@
         "url": "https://www.gvpce.ac.in/Achievements/INSTITUTIONHGHLIGHTS.pdf"
     },
     "college_facilities": {
-        "text": "GVPCE(A) provides various facilities like Labs, Hostel, Sports, and Transport.",
-        "medical": "https://www.gvpce.ac.in/medfac.html",
-        "hostel": "https://www.gvpce.ac.in/hostel.html",
-        "transport": "https://www.gvpce.ac.in/transport.html",
-        "labs": "https://www.gvpce.ac.in/laboratories.html"
+        "text": "GVPCE(A) provides various facilities like Labs, Hostel, Sports, Gym, and Transport.",
+        "url": ""
     },
     "syllabus": {},
     "certificates": {
@@ -41,11 +39,9 @@
         "url": "https://gvpce.ac.in/contactus.html"
     },
     "transfer_and_migration": {
-        "text": "For Transfer and Migration related queries, contact the respective Department Offices.",
-        "CSE": "https://gvpce.ac.in/csestaff.html",
-        "ECE": "https://gvpce.ac.in/ecestaff.html"
+        "text": "For Transfer and Migration related queries, contact the respective Department Offices."
     },
-    "IIC": {
+    "iic": {
         "text": "IIC (Institution's Innovation Council) promotes innovation, entrepreneurship, and startup culture.",
         "url": "https://gvpce.ac.in/IIC/about.php"
     },
@@ -69,17 +65,17 @@
         "text": "GVPCE(A) follows a strict Anti-Ragging policy in accordance with UGC guidelines.",
         "url": "https://gvpce.ac.in/committees/Anti-Ragging%20Committee%202024-2025.pdf"
     },
-    "IQAC": {
+    "iqac": {
         "text": "IQAC ensures continuous academic and administrative improvement at GVPCE(A).",
         "url": "https://gvpce.ac.in/IQAC/"
     },
-    "CFII": {
+    "cfii": {
         "text": "CFII promotes innovation, entrepreneurship, and industry partnerships at GVPCE(A)."
     },
     "magazine": {
         "text": "The College Magazine showcases the talents, achievements, and creative works of students and faculty."
     },
-    "CFSR": {
+    "cfsr": {
         "text": "More details about CFSR can be found here.",
         "url": "https://gvpce.ac.in/studentactivities/cfsr.php"
     },
