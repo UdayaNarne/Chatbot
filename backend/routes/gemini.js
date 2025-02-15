@@ -25,7 +25,7 @@ router.post("/generate", async (req, res) => {
         if(degree && batch) {
             let yr = Number(batch)
             let syllabusURL = `https://gvpce.ac.in/${degree}regsyl${yr}-${yr+1}.html`
-            console.log(syllabusURL)
+            //console.log(syllabusURL)
             intentResponses[currentIntent].url = syllabusURL
             intentResponses[currentIntent].text = `Here is the syllabus for ${department} department ${degree} course of ${batch} admitted batch`
         }
