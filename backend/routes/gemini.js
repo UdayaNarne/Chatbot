@@ -21,8 +21,14 @@ router.post("/generate", async (req, res) => {
     const currentIntent = responseObject.intent
     
     if(currentIntent===`syllabus`) {
-        const {department, degree, batch} = responseObject.entities
-        if(degree && batch) {
+        const {department, degree, batch,regulation} = responseObject.entities
+        if(department && regulation){
+            let yr = Number(regulation)
+            let syllabusURL = `https://gvpce.ac.in/${department}btechcoustu${yr}-${yr+1}.html`
+            intentResponses[currentIntent].url = syllabusURL
+            intentResponses[currentIntent].text = `Here is the syllabus for ${department} department course of R-${regulation}`
+        }
+        else if(degree && batch) {
             let yr = Number(batch)
             let syllabusURL = `https://gvpce.ac.in/${degree}regsyl${yr}-${yr+1}.html`
             //console.log(syllabusURL)
@@ -31,11 +37,11 @@ router.post("/generate", async (req, res) => {
         }
         else{
             intentResponses[currentIntent].url = `https://gvpce.ac.in/RegulationSyllabi.html`
-            intentResponses[currentIntent].text = `Here is the syllabus for all departments for all courses.For a specific department, degree and batch, please provide all those details` 
+            intentResponses[currentIntent].text = `Here is the syllabus for all departments for all courses.For a specific department, degree, regulation and batch, please provide all those details` 
         }
     }
     
-    if(currentIntent===`get_faculty_details`){
+    else if(currentIntent===`get_faculty_details`){
         const {department} = responseObject.entities
         if(department) {
             if(department === 'cse' || department === 'aimlcse' || department === 'ds') {

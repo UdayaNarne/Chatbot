@@ -68,6 +68,7 @@ const model = genAI.getGenerativeModel({
 
     treat b.tech, m.tech and mca entites as degree and cse ece eee civil mech as departments, 2018 2019 2020 as batch
     and in batch entity consider 2018 as 18, 2019 as 19, 2020 as 20 and so on
+    where as in regulation entity consider 2019 as 19, 2020 as 20 and so on and in r-19, r-20, r-21, r-22, r-23, r-24, r-25 as regulation and r-19 as 19, r-20 as 20 and so on
     give b.tech as btech, m.tech as mtech, mca as mca
     cse = computer science = computer science and engineering = computer science department
     ece = electronics and communication engineering
