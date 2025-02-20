@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import axios from "axios";
 import "./App.css";
 
@@ -6,8 +6,12 @@ function App() {
   const [messages, setMessages] = useState([]);
   const [input, setInput] = useState("");
   const [isChatOpen, setIsChatOpen] = useState(false);
+  const messagesEndRef = useRef(null);
 
   const toggleChat = () => {
+    if (isChatOpen) {
+      setMessages([]); // Clear messages when chat is closed
+    }
     setIsChatOpen(!isChatOpen);
   };
 
@@ -60,11 +64,17 @@ function App() {
     }
   };
 
+  useEffect(() => {
+    if (messagesEndRef.current) {
+      messagesEndRef.current.scrollIntoView({ behavior: "smooth" });
+    }
+  }, [messages]);
+
   return (
     <div className="chat-wrapper">
       {!isChatOpen ? (
         <button className="chat-toggle-btn" onClick={toggleChat}>
-          Let's Chat
+          Open Chat Box
         </button>
       ) : (
         <div className="chat-container">
@@ -79,6 +89,7 @@ function App() {
                 <strong>{msg.sender}:</strong> {msg.text}
               </div>
             ))}
+            <div ref={messagesEndRef} />
           </div>
 
           <div className="input-box">

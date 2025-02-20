@@ -1,14 +1,11 @@
 {
     "greet": {
-        "text": "Hello! This is Gaya Bot. How can I help you today?"
+        "text": "Hello! This is Gaya-3. How can I help you today?"
     },
     "admission_details": {
         "text": "To apply for admission, you'll need a Rank Card, Allotment Cards, transcripts, and an application form."
     },
-    "get_faculty_details": {
-        "text": "",
-        "url":""
-    },
+    "get_faculty_details": {},
     "placement_details": {
         "text": "The placement cell at GVPCE provides training and placement opportunities to students.",
         "url": "https://www.gvpce.ac.in/campusplace.html"
